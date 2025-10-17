@@ -9,13 +9,51 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <div class="ms-auto d-flex gap-2">
-        <button class="btn btn-outline-primary" routerLink="/iniciar-sesion">
-          <i class="fas fa-sign-in-alt"></i> Iniciar Sesión
-        </button>
-        <button class="btn btn-primary" routerLink="/registrarse">
-          <i class="fas fa-user-plus"></i> Registrarse
-        </button>
+        <!-- Botones para usuarios logueado -->
+        <ng-container *ngIf="authService.isLoggedIn()">
+          <div class="me-5">
+            <button class="btn btn-link" routerLink="/usuarios/ver">Usuarios</button>
+            <button class="btn btn-link" routerLink="/productos/ver">Productos</button>
+            <button class="btn btn-link" routerLink="/boletas/ver">Boletas</button>
+          </div>
+
+          <button class="btn btn-success" routerLink="/boletas/generar-boleta">
+            Generar boleta
+          </button>
+        </ng-container>
+
+        <ng-template #loggedInTemplate>
+          <button class="btn btn-outline-danger" routerLink="/" (click)="openModal()">Cerrar Sesión</button>
+        </ng-template>
+
+        <!-- Botones para usuarios no logueados -->
+        <ng-container *ngIf="!authService.isLoggedIn(); else loggedInTemplate">
+          <button class="btn btn-outline-primary" routerLink="/iniciar-sesion">
+            <i class="fas fa-sign-in-alt"></i> Iniciar Sesión
+          </button>
+          <button class="btn btn-primary" routerLink="/registrarse">
+            <i class="fas fa-user-plus"></i> Registrarse
+          </button>
+        </ng-container>
       </div>
     </div>
   </div>
 </nav>
+
+<div class="modal fade" #confirmLogoutModal tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Confirmar Cierre de Sesión</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <p>¿Estás seguro de que quieres cerrar tu sesión?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-danger" (click)="ejecutarLogout()">Sí, cerrar sesión</button>
+      </div>
+    </div>
+  </div>
+</div>

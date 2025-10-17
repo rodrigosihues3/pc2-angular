@@ -4,6 +4,6 @@ export interface Usuario {
   apellidos: string;
   user: string;
   password?: string; // El '?' lo hace opcional. Buena práctica para no manejar passwords en el frontend.
-  correo: string;
+  email: string;
   dni: string;
 }

@@ -1,3 +1,4 @@
+import { authGuard } from './guards/auth.guard';
 // src/app/app.routes.ts
 import { Routes } from '@angular/router';
 
@@ -21,6 +22,7 @@ export const routes: Routes = [
   // --- GRUPO DE RUTAS PARA USUARIOS ---
   {
     path: 'usuarios',
+    canActivate: [authGuard],
     children: [
       { path: 'ver', component: VerUsuariosComponent },
       { path: '', redirectTo: 'ver', pathMatch: 'full' }
@@ -30,6 +32,7 @@ export const routes: Routes = [
   // --- GRUPO DE RUTAS PARA PRODUCTOS ---
   {
     path: 'productos',
+    canActivate: [authGuard],
     children: [
       { path: 'ver', component: VerProductosComponent },
       { path: '', redirectTo: 'ver', pathMatch: 'full' }
@@ -39,8 +42,9 @@ export const routes: Routes = [
   // --- GRUPO DE RUTAS PARA BOLETAS ---
   {
     path: 'boletas',
+    canActivate: [authGuard],
     children: [
-      { path: 'crear', component: CrearBoletaComponent },   // Accede con /boletas/crear
+      { path: 'generar-boleta', component: CrearBoletaComponent },   // Accede con /boletas/crear
       { path: 'ver', component: VerBoletasComponent },     // Accede con /boletas/ver
       { path: '', redirectTo: 'ver', pathMatch: 'full' } // Si solo van a /boletas, redirige a ver
     ]
