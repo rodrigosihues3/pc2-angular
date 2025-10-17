@@ -11,15 +11,42 @@ import { VerBoletasComponent } from './components/pages/ver-boletas/ver-boletas.
 import { VerProductosComponent } from './components/pages/ver-productos/ver-productos.component';
 
 export const routes: Routes = [
+  { path: '', component: InicioComponent },
   { path: 'inicio', component: InicioComponent },
-  { path: 'registro', component: RegistroComponent },
-  { path: 'login', component: IniciarSesionComponent },
-  { path: 'crear-boleta', component: CrearBoletaComponent },
-  { path: 'usuarios', component: VerUsuariosComponent },
-  { path: 'boletas', component: VerBoletasComponent },
-  { path: 'productos', component: VerProductosComponent },
+
+  // Rutas del login
+  { path: 'registrarse', component: RegistroComponent },
+  { path: 'iniciar-sesion', component: IniciarSesionComponent },
+
+  // --- GRUPO DE RUTAS PARA USUARIOS ---
+  {
+    path: 'usuarios',
+    children: [
+      { path: 'ver', component: VerUsuariosComponent },
+      { path: '', redirectTo: 'ver', pathMatch: 'full' }
+    ]
+  },
+
+  // --- GRUPO DE RUTAS PARA PRODUCTOS ---
+  {
+    path: 'productos',
+    children: [
+      { path: 'ver', component: VerProductosComponent },
+      { path: '', redirectTo: 'ver', pathMatch: 'full' }
+    ]
+  },
+
+  // --- GRUPO DE RUTAS PARA BOLETAS ---
+  {
+    path: 'boletas',
+    children: [
+      { path: 'crear', component: CrearBoletaComponent },   // Accede con /boletas/crear
+      { path: 'ver', component: VerBoletasComponent },     // Accede con /boletas/ver
+      { path: '', redirectTo: 'ver', pathMatch: 'full' } // Si solo van a /boletas, redirige a ver
+    ]
+  },
 
   // Rutas por defecto y de redirección
-  { path: '', redirectTo: '/inicio', pathMatch: 'full' }, // Si no hay ruta, redirige a /inicio
-  { path: '**', redirectTo: '/inicio', pathMatch: 'full' }  // Si la ruta no existe, redirige a /inicio
+  { path: '', redirectTo: '/', pathMatch: 'full' }, // Si no hay ruta, redirige a /inicio
+  { path: '**', redirectTo: '/', pathMatch: 'full' },  // Si la ruta no existe, redirige a /inicio
 ];
