@@ -10,6 +10,7 @@ import { CrearBoletaComponent } from './components/pages/crear-boleta/crear-bole
 import { VerUsuariosComponent } from './components/pages/ver-usuarios/ver-usuarios.component';
 import { VerBoletasComponent } from './components/pages/ver-boletas/ver-boletas.component';
 import { VerProductosComponent } from './components/pages/ver-productos/ver-productos.component';
+import { DetalleBoletaComponent } from './components/pages/detalle-boleta/detalle-boleta.component';
 
 export const routes: Routes = [
   { path: '', component: InicioComponent },
@@ -46,7 +47,8 @@ export const routes: Routes = [
     children: [
       { path: 'generar-boleta', component: CrearBoletaComponent },   // Accede con /boletas/crear
       { path: 'ver', component: VerBoletasComponent },     // Accede con /boletas/ver
-      { path: '', redirectTo: 'ver', pathMatch: 'full' } // Si solo van a /boletas, redirige a ver
+      { path: '', redirectTo: 'ver', pathMatch: 'full' }, // Si solo van a /boletas, redirige a ver
+      { path: 'ver-detalle/:id', component: DetalleBoletaComponent }
     ]
   },
 

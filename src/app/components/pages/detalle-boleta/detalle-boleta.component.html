@@ -1,0 +1,85 @@
+<div class="container mt-5 mb-5">
+
+  <div *ngIf="cargando" class="text-center p-5">
+    <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;"></div>
+    <p class="mt-3">Cargando detalle de la boleta...</p>
+  </div>
+
+  <div *ngIf="error" class="alert alert-danger text-center">{{ error }}</div>
+
+  <div *ngIf="!cargando && boleta" class="card shadow-lg">
+    <div class="card-body p-4 p-md-5">
+
+      <div class="d-flex justify-content-between align-items-start pb-4 border-bottom">
+        <div>
+          <h2 class="fw-bold text-primary">BOLETEANDO S.A.C.</h2>
+          <p class="text-muted mb-0">RUC: 20123456789</p>
+          <p class="text-muted mb-0">Av. Siempre Viva 742, Lima</p>
+        </div>
+        <div class="text-end">
+          <h3 class="h4">BOLETA DE VENTA</h3>
+          <p class="fs-5 fw-bold">{{ boleta.serie }}-{{ boleta.numero }}</p>
+        </div>
+      </div>
+
+      <div class="row pt-4">
+        <div class="col-md-6">
+          <h4 class="h6">CLIENTE</h4>
+          <p class="mb-0">{{ boleta.cliente.nombres }} {{ boleta.cliente.apellidos }}</p>
+          <p class="text-muted mb-0">DNI: {{ boleta.cliente.dni }}</p>
+        </div>
+        <div class="col-md-6 text-md-end mt-3 mt-md-0">
+          <h4 class="h6">FECHA DE EMISIÓN</h4>
+          <p class="mb-0">{{ boleta.fechaEmision | date:'dd/MM/yyyy' }}</p>
+        </div>
+      </div>
+
+      <div class="table-responsive mt-4">
+        <table class="table table-bordered">
+          <thead class="table-light">
+            <tr>
+              <th scope="col">Cant.</th>
+              <th scope="col">Descripción</th>
+              <th scope="col" class="text-end">P. Unit.</th>
+              <th scope="col" class="text-end">Subtotal</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of boleta.detalle">
+              <td>{{ item.cantidad }}</td>
+              <td>{{ item.productoId }} </td>
+              <td class="text-end">S/ {{ item.precioUnitario | number:'1.2-2' }}</td>
+              <td class="text-end">S/ {{ (item.cantidad * item.precioUnitario) | number:'1.2-2' }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="row justify-content-end mt-4">
+        <div class="col-md-5 col-lg-4">
+          <div class="d-flex justify-content-between">
+            <span class="text-muted">Subtotal:</span>
+            <span>S/ {{ subtotal | number:'1.2-2' }}</span>
+          </div>
+          <div class="d-flex justify-content-between">
+            <span class="text-muted">IGV (18%):</span>
+            <span>S/ {{ igv | number:'1.2-2' }}</span>
+          </div>
+          <hr>
+          <div class="d-flex justify-content-between fw-bold fs-5">
+            <span>TOTAL:</span>
+            <span class="text-primary">S/ {{ total | number:'1.2-2' }}</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center mt-5">
+        <a routerLink="/boletas/ver" class="btn btn-secondary">
+          <i class="fas fa-arrow-left me-2"></i>Volver al Listado
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+</div>
