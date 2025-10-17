@@ -1,0 +1,124 @@
+{
+  "usuarios": [
+    {
+      "id": 1,
+      "nombres": "Rodrigo",
+      "apellidos": "Sihues Yanqui",
+      "user": "rodrigosy",
+      "password": "rodrigosy",
+      "correo": "sihues3@gmail.com",
+      "dni": "74663928"
+    }
+  ],
+  "boletas": [
+    {
+      "id": 1,
+      "fechaEmision": "2024-05-21T10:00:00Z",
+      "emisor": {
+        "ruc": "20123456789",
+        "razonSocial": "MI EMPRESA S.A.C.",
+        "nombreComercial": "Mi Tienda",
+        "direccion": "Av. El Sol 123, Lima, Lima, Perú"
+      },
+      "cliente": {
+        "dni": "74663928",
+        "nombres": "Rodrigo",
+        "apellidos": "Sihues Yanqui"
+      },
+      "productos": [
+        {
+          "id": 1,
+          "cantidad": 2,
+          "descripcion": "Teclado Inalámbrico",
+          "valorUnitario": 80.00,
+          "precioUnitario": 94.40,
+          "igvItem": 28.80,
+          "importeTotalItem": 188.80
+        }
+      ],
+      "totalOpGravadas": 160.00,
+      "totalIgv": 28.80,
+      "importeTotal": 188.80,
+      "leyenda": [
+        {
+          "codigo": "1000",
+          "valor": "CIENTO OCHENTA Y OCHO Y 80/100 SOLES"
+        }
+      ]
+    }
+  ],
+  "productos": [
+    {
+      "id": 1,
+      "nombre": "iPhone 15 Pro",
+      "descripcion": "El iPhone definitivo. Con el chip A17 Pro, un sistema de cámaras Pro más potente y una pantalla Super Retina XDR con ProMotion.",
+      "precio": 5499.00,
+      "stock": 50,
+      "categoria": "Smartphones",
+      "imagenUrl": "https://www.apple.com/v/iphone-15-pro/c/images/overview/design/design_display_pro__d3c64sc8m2wi_large.jpg"
+    },
+    {
+      "id": 2,
+      "nombre": "MacBook Air 13\" (M2)",
+      "descripcion": "Superligera y superpotente. Con el chip M2 de Apple, hasta 18 horas de batería y una espectacular pantalla Liquid Retina.",
+      "precio": 4999.00,
+      "stock": 30,
+      "categoria": "Laptops",
+      "imagenUrl": "https://www.apple.com/v/macbook-air-13-and-15-m2/b/images/overview/design/design-hero_13_15__cpxzm1k3t12e_large.jpg"
+    },
+    {
+      "id": 3,
+      "nombre": "AirPods Pro (2.ª generación)",
+      "descripcion": "Audio espacial personalizado con seguimiento dinámico de la cabeza y cancelación activa de ruido hasta 2 veces más potente.",
+      "precio": 1099.00,
+      "stock": 120,
+      "categoria": "Accesorios",
+      "imagenUrl": "https://www.apple.com/v/airpods-pro/g/images/overview/case_front__r6j4p8on9c2u_large.jpg"
+    },
+    {
+      "id": 4,
+      "nombre": "Apple Watch Series 9",
+      "descripcion": "Un compańero de entrenamiento que te motiva. Con el gesto de doble toque, una forma mágica de interactuar con el Apple Watch.",
+      "precio": 1999.00,
+      "stock": 75,
+      "categoria": "Wearables",
+      "imagenUrl": "https://www.apple.com/v/apple-watch-series-9/e/images/overview/design/design_hero_s9__f213s5h62k2i_large.jpg"
+    },
+    {
+      "id": 5,
+      "nombre_comercial": "Samsung Galaxy S24 Ultra",
+      "descripcion": "El poder de la IA en tus manos. Cámara de 200MP, el S Pen integrado y un rendimiento sin precedentes con Snapdragon 8 Gen 3.",
+      "precio": 5999.00,
+      "stock": 40,
+      "categoria": "Smartphones",
+      "imagenUrl": "https://images.samsung.com/is/image/samsung/p6pim/pe/2401/gallery/pe-galaxy-s24-ultra-sm-s928-483293-sm-s928bztlpeo-539572291"
+    },
+    {
+      "id": 6,
+      "nombre": "Sony WH-1000XM5",
+      "descripcion": "Audífonos con Noise Cancelling líder en la industria. Calidad de sonido excepcional y diseńo ultracómodo.",
+      "precio": 1599.00,
+      "stock": 80,
+      "categoria": "Accesorios",
+      "imagenUrl": "https://www.sony.com.pe/image/5d02da5df552836db894cead8a68f5f3"
+    },
+    {
+      "id": 7,
+      "nombre": "Dell XPS 15 Laptop",
+      "descripcion": "Potencia y portabilidad con procesadores Intel Core Ultra y pantalla InfinityEdge OLED.",
+      "precio": 7500.00,
+      "stock": 25,
+      "categoria": "Laptops",
+      "imagenUrl": "https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/dell-client-products/notebooks/xps-notebooks/xps-15-9530/media-gallery/touch-black/notebook-xps-15-9530-t-black-gallery-1.psd"
+    },
+    {
+      "id": 8,
+      "nombre": "Logitech MX Master 3S",
+      "descripcion": "Mouse inalámbrico de alto rendimiento con seguimiento en cualquier superficie y clics silenciosos.",
+      "precio": 450.00,
+      "stock": 150,
+      "categoria": "Accesorios",
+      "imagenUrl": "https://resource.logitech.com/w_800,c_lpad,ar_1:1,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/mx-master-3s/gallery/mx-master-3s-mouse-top-view-graphite.png"
+    }
+  ]
+}
