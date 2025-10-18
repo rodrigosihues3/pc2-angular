@@ -1,0 +1,113 @@
+<!-- VISTA: INICIO -->
+<div>
+  <!-- HERO SECTION -->
+  <section class="hero-section p-5">
+    <div class="container-fluid">
+      <div class="row align-items-center">
+        <div class="col-lg-6 col-md-12 mb-4 mb-lg-0">
+          <h1 class="display-4 fw-bold text-dark mb-4">
+            Emite Boletas de <br> Forma <span class="text-primary">Profesional</span>
+          </h1>
+          <p class="lead text-muted mb-4">
+            BoleteApp es la solución completa para gestionar y emitir boletas de manera rápida, segura y confiable.
+            Diseñado para negocios que buscan profesionalismo.
+          </p>
+          <div *ngIf="!authService.isLoggedIn(); else crearBoletaTemplate" class="d-flex gap-3 flex-wrap">
+            <button class="btn btn-primary btn-lg" routerLink="/iniciar-sesion">
+              <i class="fas fa-sign-in-alt"></i> Iniciar Sesión
+            </button>
+            <button class="btn btn-outline-primary btn-lg" routerLink="/registrarse">
+              <i class="fas fa-user-plus"></i> Crear Cuenta
+            </button>
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-12">
+          <div class="hero-image">
+            <div class="card shadow-lg border-0">
+              <div class="card-body p-4">
+                <div class="text-center mb-3">
+                  <i class="fas fa-file-invoice-dollar fa-5x text-primary"></i>
+                </div>
+                <h5 class="card-title text-center">Boleta Profesional</h5>
+                <hr>
+                <div class="small text-muted">
+                  <p><strong>Empresa:</strong> Mi Negocio S.A.</p>
+                  <p><strong>Boleta #:</strong> 001-2024-00001</p>
+                  <p><strong>Fecha:</strong> 16/10/2024</p>
+                  <hr>
+                  <p><strong>Subtotal:</strong> $100.00</p>
+                  <p><strong>Impuesto:</strong> $15.00</p>
+                  <p class="fw-bold text-primary"><strong>Total:</strong> $115.00</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CARACTERÍSTICAS -->
+  <section class="features-section py-5">
+    <div class="container">
+      <h2 class="text-center fw-bold mb-5">¿Por qué elegir BoleteApp?</h2>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-3">
+          <div class="feature-card text-center p-4">
+            <div class="feature-icon mb-3">
+              <i class="fas fa-bolt text-primary"></i>
+            </div>
+            <h5 class="fw-bold">Rápido y Eficiente</h5>
+            <p class="text-muted small">Emite boletas en segundos con nuestro sistema optimizado.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="feature-card text-center p-4">
+            <div class="feature-icon mb-3">
+              <i class="fas fa-shield-alt text-primary"></i>
+            </div>
+            <h5 class="fw-bold">Seguro y Confiable</h5>
+            <p class="text-muted small">Tus datos están protegidos con encriptación de nivel empresarial.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="feature-card text-center p-4">
+            <div class="feature-icon mb-3">
+              <i class="fas fa-users text-primary"></i>
+            </div>
+            <h5 class="fw-bold">Gestión de Usuarios</h5>
+            <p class="text-muted small">Administra múltiples usuarios y permisos fácilmente.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="feature-card text-center p-4">
+            <div class="feature-icon mb-3">
+              <i class="fas fa-mobile-alt text-primary"></i>
+            </div>
+            <h5 class="fw-bold">Responsivo</h5>
+            <p class="text-muted small">Accede desde cualquier dispositivo, en cualquier momento.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="cta-section py-5">
+    <div class="container text-center">
+      <h2 class="fw-bold mb-4">¿Listo para comenzar?</h2>
+      <div *ngIf="!authService.isLoggedIn(); else crearBoletaTemplate">
+        <p class="lead text-muted mb-4">Únete a cientos de negocios que confían en BoleteApp</p>
+        <button class="btn btn-primary" routerLink="/registrarse">
+          <i class="fas fa-user-plus"></i> Crear Cuenta Ahora
+        </button>
+      </div>
+    </div>
+
+    <ng-template #crearBoletaTemplate>
+      <button class="btn btn-lg btn-primary" routerLink="/boletas/generar-boleta">
+        <i class="bi bi-file-earmark-medical-fill fs-5"></i> Generar boleta
+      </button>
+    </ng-template>
+  </section>
+</div>

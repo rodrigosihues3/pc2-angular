@@ -1,0 +1,9 @@
+/* NAVBAR */
+.navbar {
+  border-bottom: 1px solid #e9ecef;
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+  color: var(--primary-color) !important;
+}
