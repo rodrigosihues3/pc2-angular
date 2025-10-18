@@ -1,92 +1,38 @@
 {
   "usuarios": [
     {
-      "id": 1,
-      "nombres": "Rodrigo",
-      "apellidos": "Sihues Yanqui",
-      "user": "rodrigosy",
+      "id": "1",
+      "nombres": "RODRIGO",
+      "apellidos": "SIHUES YANQUI",
       "password": "rodrigosy",
-      "email": "sihues3@gmail.com",
+      "email": "SIHUES3@gmail.com",
       "dni": "74663928"
-    },
-    {
-      "id": 2,
-      "dni": "40839336",
-      "nombres": "SONIA",
-      "apellidos": "YANQUI GUTIERREZ",
-      "email": "sonia@hotmail.com",
-      "password": "1234"
     }
   ],
   "boletas": [
     {
-      "id": 1,
+      "id": "11",
       "serie": "B001",
-      "numero": 1,
-      "fechaEmision": "2025-10-15",
+      "numero": 8164,
+      "fechaEmision": "2025-10-18",
       "cliente": {
-        "dni": "74663928",
-        "nombres": "RODRIGO",
-        "apellidos": "SIHUES YANQUI"
-      },
-      "detalle": [
-        {
-          "productoId": 1,
-          "cantidad": 1,
-          "precioUnitario": 5499.00
-        },
-        {
-          "productoId": 3,
-          "cantidad": 1,
-          "precioUnitario": 1099.00
-        }
-      ]
-    },
-    {
-      "id": 2,
-      "serie": "B001",
-      "numero": 2,
-      "fechaEmision": "2025-10-16",
-      "cliente": {
-        "dni": "40839336",
-        "nombres": "SONIA",
-        "apellidos": "YANQUI GUTIERREZ"
+        "dni": "22066832",
+        "nombres": "ADULBERTO JOSE",
+        "apellidos": "IGNACIO GARCIA"
       },
       "detalle": [
         {
           "productoId": 2,
+          "descripcion": "MacBook Air 13\" (M2)",
           "cantidad": 1,
-          "precioUnitario": 4999.00
-        }
-      ]
-    },
-    {
-      "id": 3,
-      "serie": "B001",
-      "numero": 3,
-      "fechaEmision": "2025-10-17",
-      "cliente": {
-        "dni": "12345678",
-        "nombres": "JUAN CARLOS",
-        "apellidos": "TORRES ROJAS"
-      },
-      "detalle": [
-        {
-          "productoId": 8,
-          "cantidad": 2,
-          "precioUnitario": 450.00
-        },
-        {
-          "productoId": 6,
-          "cantidad": 1,
-          "precioUnitario": 1599.00
+          "precioUnitario": 4999
         }
       ]
     }
   ],
   "productos": [
     {
-      "id": 1,
+      "id": "1",
       "nombre": "iPhone 15 Pro",
       "descripcion": "El iPhone definitivo. Con el chip A17 Pro, un sistema de cámaras Pro más potente y una pantalla Super Retina XDR con ProMotion.",
       "precio": 5499,
@@ -95,7 +41,7 @@
       "imagenUrl": "https://www.apple.com/v/iphone-15-pro/c/images/overview/design/design_display_pro__d3c64sc8m2wi_large.jpg"
     },
     {
-      "id": 2,
+      "id": "2",
       "nombre": "MacBook Air 13\" (M2)",
       "descripcion": "Superligera y superpotente. Con el chip M2 de Apple, hasta 18 horas de batería y una espectacular pantalla Liquid Retina.",
       "precio": 4999,
@@ -104,7 +50,7 @@
       "imagenUrl": "https://www.apple.com/v/macbook-air-13-and-15-m2/b/images/overview/design/design-hero_13_15__cpxzm1k3t12e_large.jpg"
     },
     {
-      "id": 3,
+      "id": "3",
       "nombre": "AirPods Pro (2.ª generación)",
       "descripcion": "Audio espacial personalizado con seguimiento dinámico de la cabeza y cancelación activa de ruido hasta 2 veces más potente.",
       "precio": 1099,
@@ -113,7 +59,7 @@
       "imagenUrl": "https://www.apple.com/v/airpods-pro/g/images/overview/case_front__r6j4p8on9c2u_large.jpg"
     },
     {
-      "id": 4,
+      "id": "4",
       "nombre": "Apple Watch Series 9",
       "descripcion": "Un compańero de entrenamiento que te motiva. Con el gesto de doble toque, una forma mágica de interactuar con el Apple Watch.",
       "precio": 1999,
@@ -122,7 +68,7 @@
       "imagenUrl": "https://www.apple.com/v/apple-watch-series-9/e/images/overview/design/design_hero_s9__f213s5h62k2i_large.jpg"
     },
     {
-      "id": 5,
+      "id": "5",
       "nombre_comercial": "Samsung Galaxy S24 Ultra",
       "descripcion": "El poder de la IA en tus manos. Cámara de 200MP, el S Pen integrado y un rendimiento sin precedentes con Snapdragon 8 Gen 3.",
       "precio": 5999,
@@ -131,7 +77,7 @@
       "imagenUrl": "https://images.samsung.com/is/image/samsung/p6pim/pe/2401/gallery/pe-galaxy-s24-ultra-sm-s928-483293-sm-s928bztlpeo-539572291"
     },
     {
-      "id": 6,
+      "id": "6",
       "nombre": "Sony WH-1000XM5",
       "descripcion": "Audífonos con Noise Cancelling líder en la industria. Calidad de sonido excepcional y diseńo ultracómodo.",
       "precio": 1599,
@@ -140,7 +86,7 @@
       "imagenUrl": "https://www.sony.com.pe/image/5d02da5df552836db894cead8a68f5f3"
     },
     {
-      "id": 7,
+      "id": "7",
       "nombre": "Dell XPS 15 Laptop",
       "descripcion": "Potencia y portabilidad con procesadores Intel Core Ultra y pantalla InfinityEdge OLED.",
       "precio": 7500,
@@ -149,7 +95,7 @@
       "imagenUrl": "https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/dell-client-products/notebooks/xps-notebooks/xps-15-9530/media-gallery/touch-black/notebook-xps-15-9530-t-black-gallery-1.psd"
     },
     {
-      "id": 8,
+      "id": "8",
       "nombre": "Logitech MX Master 3S",
       "descripcion": "Mouse inalámbrico de alto rendimiento con seguimiento en cualquier superficie y clics silenciosos.",
       "precio": 450,

@@ -42,8 +42,8 @@ export class RegistroComponent {
   ) {
     this.registroForm = this.fb.group({
       dni: ['', [Validators.required, Validators.pattern(/^\d{8}$/)]],
-      nombres: ['', Validators.required],
-      apellidos: ['', Validators.required],
+      nombres: [{ value: '', disabled: true }, Validators.required],
+      apellidos: [{ value: '', disabled: true }, Validators.required],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required]],
       confirmPassword: ['', Validators.required]
@@ -68,11 +68,16 @@ export class RegistroComponent {
           nombres: data.nombres,
           apellidos: data.apellidos
         });
+        this.registroForm.get('nombres')?.disable();
+        this.registroForm.get('apellidos')?.disable();
         this.buscandoDNI = false;
       },
       error: (error) => {
-        this.errorAPI = 'No se pudo encontrar el DNI o la API falló.';
-        this.buscandoDNI = false
+        this.errorAPI = 'DNI no encontrado. Por favor, ingrese sus datos manualmente.';
+        // FALLO: La API no encontró datos, habilitamos los campos para edición manual.
+        this.registroForm.get('nombres')?.enable();
+        this.registroForm.get('apellidos')?.enable();
+        this.buscandoDNI = false;
       }
     });
   }
@@ -102,7 +107,20 @@ export class RegistroComponent {
         this.router.navigate(['/iniciar-sesion']);
       },
       error: (err) => {
-        this.errorRegistro = 'Ocurrió un error durante el registro.';
+        // 1. El paso de depuración más importante: Ver qué es 'err'
+        console.error('Objeto de error completo recibido:', err);
+
+        // 2. Lógica robusta para encontrar y mostrar el mensaje
+        if (err && err.message) {
+          // Si el error tiene una propiedad .message (como el que creamos)
+          this.errorRegistro = err.message;
+        } else if (typeof err === 'string') {
+          // Si el error es simplemente un texto
+          this.errorRegistro = err;
+        } else {
+          // Fallback para cualquier otro tipo de error
+          this.errorRegistro = 'El DNI ya se encuentra registrado o ocurrió un error inesperado.';
+        }
       }
     });
   }

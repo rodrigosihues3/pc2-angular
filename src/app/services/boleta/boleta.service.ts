@@ -10,9 +10,13 @@ export class BoletaService {
 
   constructor(private http: HttpClient) { }
 
-  // Obtiene todas las boletas
+  // CRUD
+  createBoleta(boletaData: any): Observable<any> {
+    return this.http.post(this.apiUrl, boletaData);
+  }
+
   getBoletas(): Observable<any[]> {
-    return this.http.get<any[]>(this.apiUrl);
+    return this.http.get<any[]>(`${this.apiUrl}?_sort=id&_order=desc`);
   }
 
   getBoletaById(id: string): Observable<any> {

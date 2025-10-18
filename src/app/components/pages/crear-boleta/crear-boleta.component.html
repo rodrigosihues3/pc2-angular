@@ -1,1 +1,135 @@
-<p>crear-boleta works!</p>
+<div class="container my-5">
+  <form [formGroup]="boletaForm" (ngSubmit)="generarBoleta()">
+    <div class="card shadow-sm">
+      <div class="card-header text-center">
+        <h2 class="h4 mb-0">Generar Nueva Boleta</h2>
+      </div>
+      <div class="card-body p-4">
+
+        <fieldset formGroupName="cliente" class="border p-3 rounded mb-4">
+          <legend class="float-none w-auto px-2 h6">Datos del Cliente</legend>
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label class="form-label">DNI</label>
+              <div class="input-group">
+                <input type="text" class="form-control" formControlName="dni" maxlength="8">
+                <button class="btn btn-outline-primary" type="button" (click)="buscarCliente()"
+                  [disabled]="buscandoCliente">Buscar</button>
+              </div>
+              <div *ngIf="errorAPI" class="text-danger small mt-1">{{ errorAPI }}</div>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label class="form-label">Fecha de Emisión</label>
+              <input type="text" class="form-control" [value]="fechaActual | date:'dd/MM/yyyy'" readonly>
+            </div>
+
+            <div class="col-md-6 mb-3">
+              <label class="form-label">Nombres</label>
+              <input type="text" class="form-control" formControlName="nombres">
+            </div>
+            <div class="col-md-6 mb-3">
+              <label class="form-label">Apellidos</label>
+              <input type="text" class="form-control" formControlName="apellidos">
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset class="border p-3 rounded">
+          <legend class="float-none w-auto px-2 h6">Detalle de la Venta</legend>
+          <div class="d-flex gap-2 mb-3">
+            <button type="button" class="btn btn-success" (click)="abrirModalAgregarExistente()">
+              + Agregar Existente
+            </button>
+            <button type="button" class="btn btn-info" (click)="agregarItemVacio()">
+              + Agregar Nuevo Producto
+            </button>
+          </div>
+
+          <div class="modal fade" #agregarProductoModal tabindex="-1">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Agregar Producto</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                  <div class="mb-3">
+                    <label for="productoSelect" class="form-label">Producto</label>
+                    <select class="form-select" id="productoSelect" [(ngModel)]="productoSeleccionadoId"
+                      [ngModelOptions]="{standalone: true}">
+                      <option value="" disabled>-- Seleccione un producto --</option>
+                      <option *ngFor="let producto of productosDisponibles" [value]="producto.id">
+                        {{ producto.nombre }}
+                      </option>
+                    </select>
+                  </div>
+                  <div class="mb-3">
+                    <label for="cantidadInput" class="form-label">Cantidad</label>
+                    <input type="number" class="form-control" id="cantidadInput" [(ngModel)]="cantidadSeleccionada"
+                      [ngModelOptions]="{standalone: true}" min="1">
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                  <button type="button" class="btn btn-primary" (click)="agregarProductoSeleccionado()">Agregar a la
+                    Boleta</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div formArrayName="detalle" class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Descripción</th>
+                  <th style="width: 120px;">Cantidad</th>
+                  <th style="width: 150px;" class="text-end">P. Unitario</th>
+                  <th style="width: 150px;" class="text-end">Subtotal</th>
+                  <th style="width: 80px;"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of detalleItems.controls; let i=index" [formGroupName]="i">
+                  <td>
+                    <input type="text" class="form-control" formControlName="descripcion">
+                  </td>
+                  <td>
+                    <input type="number" class="form-control text-center" formControlName="cantidad">
+                  </td>
+                  <td>
+                    <input type="number" class="form-control text-end" formControlName="precioUnitario">
+                  </td>
+                  <td class="text-end align-middle">
+                    S/ {{ calcularSubtotal($any(item)) | number:'1.2-2' }}
+                  </td>
+                  <td class="text-center align-middle">
+                    <button type="button" class="btn btn-sm btn-outline-danger" (click)="eliminarItem(i)">🗑️</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <div *ngIf="detalleItems.length === 0" class="alert alert-light text-center">
+              Aún no has agregado productos a la boleta.
+            </div>
+          </div>
+
+          <div class="row justify-content-end mt-3">
+            <div class="col-md-5">
+              <div class="d-flex justify-content-between fw-bold fs-5">
+                <span>TOTAL:</span>
+                <span class="text-primary">S/ {{ calcularTotalGeneral() | number:'1.2-2' }}</span>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+
+      </div>
+      <div class="card-footer text-end p-3">
+        <button type="submit" class="btn btn-primary btn-lg" [disabled]="boletaForm.invalid">
+          Generar Boleta
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

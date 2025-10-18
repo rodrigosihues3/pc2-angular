@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { map, Observable } from 'rxjs';
+import { map, Observable, switchMap, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -43,12 +43,25 @@ export class AuthService {
     return user ? JSON.parse(user) : null;
   }
 
+  // --- MÉTODO REGISTER CON BLOQUEO DE USUARIO EXISTENTE ---
   register(userData: any): Observable<any> {
-    return this.http.post<any>(this.apiUrl, userData);
+    // GET para buscar si ya existe un usuario con ese DNI.
+    return this.http.get<any[]>(`${this.apiUrl}?dni=${userData.dni}`).pipe(
+      switchMap(existingUsers => {
+        // Comprobar la respuesta.
+        if (existingUsers.length > 0) {
+          // Si el array no está vacío, el DNI ya existe. Lanzamos un error.
+          return throwError(() => new Error('El DNI ya se encuentra registrado.'));
+        } else {
+          // Si el array está vacío, el DNI está libre. Procedemos a crear el usuario.
+          return this.http.post(this.apiUrl, userData);
+        }
+      })
+    );
   }
 
   // Obtener usuarios
   getUsuarios(): Observable<any[]> {
-    return this.http.get<any[]>(this.apiUrl);
+    return this.http.get<any[]>(`${this.apiUrl}?_sort=id&_order=desc`);
   }
 }
