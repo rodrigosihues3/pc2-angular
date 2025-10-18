@@ -1,13 +1,16 @@
+<!-- Contenedor principal con margenes superiores e inferiores-->
 <div class="container mt-5 mb-5">
   <div class="row justify-content-center">
     <div class="col-12 col-md-10 col-lg-8">
 
+      <!-- Tarjeta que contiene la lista de boletas-->
       <div class="card shadow-sm">
         <div class="card-header bg-light text-center">
           <h2 class="h4 mb-0">Mis Boletas Emitidas</h2>
         </div>
 
         <div class="card-body">
+          <!--Seccion mostrada mientras se cargan los datos-->
           <div *ngIf="cargando" class="text-center p-4">
             <div class="spinner-border text-primary" role="status">
               <span class="visually-hidden">Cargando...</span>
@@ -15,18 +18,20 @@
             <p class="mt-2">Cargando boletas...</p>
           </div>
 
+          <!--Lista de boletas mostradas cuando se han cargado y existen resultados-->
           <div *ngIf="!cargando && boletas.length > 0" class="list-group list-group-flush">
-
+            <!-- Itera sobre cada boleta y muestra su informacion-->
             <div *ngFor="let boleta of boletas" class="list-group-item">
 
               <div class="d-flex justify-content-between align-items-center">
-
+                <!--Informacion principal de la boleta-->
                 <div>
                   <h5 class="mb-1 fw-bold">{{ boleta.serie }}-{{ boleta.numero }}</h5>
                   <p class="mb-1 text-muted">Cliente: {{ boleta.cliente.nombres }} {{ boleta.cliente.apellidos }}</p>
                   <small class="text-muted">Fecha: {{ boleta.fechaEmision | date:'dd/MM/yyyy' }}</small>
                 </div>
 
+                <!--Total de la boleta y boton para ver detalles-->
                 <div class="text-end">
                   <span class="d-block fs-5 fw-bold text-primary">
                     S/ {{ calcularTotal(boleta.detalle) | number:'1.2-2' }}
@@ -38,7 +43,7 @@
               </div>
             </div>
           </div>
-
+          <!--Mensaje mostrado si no existe boletas emitidas-->
           <div *ngIf="!cargando && boletas.length === 0" class="alert alert-info text-center mt-3">
             Aún no has emitido ninguna boleta.
           </div>

@@ -1,17 +1,24 @@
+<!-- Contenedor principal-->
 <div class="container mt-5 mb-5">
   <div class="row justify-content-center">
     <div class="col-12 col-lg-10">
 
+      <!--Tarjeta principal-->
       <div class="card shadow-sm">
+        <!--Encabezado de la tarjeta-->
         <div class="card-header bg-light text-center">
           <h2 class="h4 mb-0">Usuarios Registrados</h2>
         </div>
+        <!--Cuerpo de la tarjeta-->
         <div class="card-body">
 
+          <!--Tabla responsiva-->
           <div class="table-responsive">
 
+            <!--Tabña de usuarios-->
             <table class="table table-hover table-striped text-center align-middle">
 
+              <!--Encabezados de columnas-->
               <thead class="table-light">
                 <tr>
                   <th scope="col">#</th>
@@ -22,9 +29,13 @@
                 </tr>
               </thead>
 
+              <!--Cuerpo de la tabla-->
               <tbody>
+                <!--Recorre el arreglo de usuarios con *ngFor-->
                 <tr *ngFor="let usuario of usuarios; let i = index">
+                  <!--Muestra el numero de fila-->
                   <th scope="row">{{ i + 1 }}</th>
+                  <!--Muestra los datos del usuario-->
                   <td>{{ usuario.dni }}</td>
                   <td>{{ usuario.nombres }}</td>
                   <td>{{ usuario.apellidos }}</td>
@@ -33,7 +44,7 @@
               </tbody>
             </table>
           </div>
-
+          <!--Mensjae cuando no hay usuarios-->
           <div *ngIf="!usuarios || usuarios.length === 0" class="alert alert-info text-center mt-3">
             No hay usuarios registrados por el momento.
           </div>

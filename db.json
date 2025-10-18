@@ -32,6 +32,14 @@
       "apellidos": "SIHUES LUDEÑA",
       "email": "amoelvalorant@hotmail.com",
       "password": "123"
+    },
+    {
+      "id": "e5bd",
+      "dni": "23232323",
+      "nombres": "ANA MARIA",
+      "apellidos": "CARDENAS CORDOVA",
+      "email": "alexanderxavierneyradelacruz@gmail.com",
+      "password": "123456789"
     }
   ],
   "boletas": [
@@ -98,6 +106,80 @@
           "precioUnitario": 1599
         }
       ]
+    },
+    {
+      "id": "3444",
+      "serie": "B001",
+      "numero": 6119,
+      "fechaEmision": "2025-10-18",
+      "cliente": {
+        "dni": "74663928",
+        "nombres": "RODRIGO",
+        "apellidos": "SIHUES YANQUI"
+      },
+      "detalle": [
+        {
+          "productoId": null,
+          "descripcion": "sdasad",
+          "cantidad": 1,
+          "precioUnitario": 2
+        },
+        {
+          "productoId": null,
+          "descripcion": "asdas",
+          "cantidad": 1,
+          "precioUnitario": 232
+        },
+        {
+          "productoId": null,
+          "descripcion": "dasdas",
+          "cantidad": 1,
+          "precioUnitario": 1231233
+        },
+        {
+          "productoId": null,
+          "descripcion": "asdasdas",
+          "cantidad": 1,
+          "precioUnitario": 123120
+        },
+        {
+          "productoId": null,
+          "descripcion": "bott",
+          "cantidad": 1,
+          "precioUnitario": 1231230
+        },
+        {
+          "productoId": "7",
+          "descripcion": "Dell XPS 15 Laptop",
+          "cantidad": 112,
+          "precioUnitario": 7500
+        }
+      ]
+    },
+    {
+      "id": "dfe1",
+      "serie": "B001",
+      "numero": 7951,
+      "fechaEmision": "2025-10-18",
+      "cliente": {
+        "dni": "74663928",
+        "nombres": "RODRIGO",
+        "apellidos": "SIHUES YANQUI"
+      },
+      "detalle": [
+        {
+          "productoId": "1",
+          "descripcion": "iPhone 15 Pro",
+          "cantidad": 1,
+          "precioUnitario": 5499
+        },
+        {
+          "productoId": "4",
+          "descripcion": "Apple Watch Series 9",
+          "cantidad": 1,
+          "precioUnitario": 1999
+        }
+      ]
     }
   ],
   "productos": [
@@ -108,7 +190,7 @@
       "precio": 5499,
       "stock": 50,
       "categoria": "Smartphones",
-      "imagenUrl": "https://www.apple.com/v/iphone-15-pro/c/images/overview/design/design_display_pro__d3c64sc8m2wi_large.jpg"
+      "imagenUrl": "https://media.falabella.com/falabellaPE/20039958_01/w=800,h=800,fit=pad"
     },
     {
       "id": "2",
@@ -117,7 +199,7 @@
       "precio": 4999,
       "stock": 30,
       "categoria": "Laptops",
-      "imagenUrl": "https://www.apple.com/v/macbook-air-13-and-15-m2/b/images/overview/design/design-hero_13_15__cpxzm1k3t12e_large.jpg"
+      "imagenUrl": "https://media.falabella.com/falabellaPE/127694287_01/w=800,h=800,fit=pad"
     },
     {
       "id": "3",
@@ -126,7 +208,7 @@
       "precio": 1099,
       "stock": 120,
       "categoria": "Accesorios",
-      "imagenUrl": "https://www.apple.com/v/airpods-pro/g/images/overview/case_front__r6j4p8on9c2u_large.jpg"
+      "imagenUrl": "https://media.falabella.com/falabellaPE/20073386_1/w=800,h=800,fit=pad"
     },
     {
       "id": "4",
@@ -135,7 +217,7 @@
       "precio": 1999,
       "stock": 75,
       "categoria": "Wearables",
-      "imagenUrl": "https://www.apple.com/v/apple-watch-series-9/e/images/overview/design/design_hero_s9__f213s5h62k2i_large.jpg"
+      "imagenUrl": "https://media.falabella.com/falabellaPE/139089107_02/w=800,h=800,fit=pad"
     },
     {
       "id": "5",
@@ -144,7 +226,7 @@
       "precio": 5999,
       "stock": 40,
       "categoria": "Smartphones",
-      "imagenUrl": "https://images.samsung.com/is/image/samsung/p6pim/pe/2401/gallery/pe-galaxy-s24-ultra-sm-s928-483293-sm-s928bztlpeo-539572291"
+      "imagenUrl": "https://media.falabella.com/falabellaPE/20455266_01/w=800,h=800,fit=pad"
     },
     {
       "id": "6",
