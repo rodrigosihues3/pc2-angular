@@ -11,6 +11,7 @@ describe('authGuard', () => {
     TestBed.configureTestingModule({});
   });
 
+    // Prueba básica que verifica que el guard se haya creado correctamente.
   it('should be created', () => {
     expect(executeGuard).toBeTruthy();
   });

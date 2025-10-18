@@ -1,8 +1,9 @@
-/* NAVBAR */
+/*  Estilos para el navbar(barra de navegacion*/
 .navbar {
-  border-bottom: 1px solid #e9ecef;
+  border-bottom: 1px solid #e9ecef;  /* pequeña linea debajo de la barra de navegacion*/
 }
 
+/* Etilos para el nombre de la marca en el navbar*/
 .navbar-brand {
   font-size: 1.5rem;
   color: var(--primary-color) !important;

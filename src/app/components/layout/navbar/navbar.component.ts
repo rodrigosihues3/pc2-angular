@@ -6,6 +6,7 @@ import { AuthService } from '../../../services/auth/auth.service';
 // Le decimos a TypeScript que la variable 'bootstrap' existe a nivel global (gracias al script que añadimos)
 declare var bootstrap: any;
 
+//Decorador que define el compoente navbar
 @Component({
   selector: 'app-navbar',
   standalone: true,
@@ -13,8 +14,8 @@ declare var bootstrap: any;
     CommonModule,
     RouterLink
   ],
-  templateUrl: './navbar.component.html',
-  styleUrl: './navbar.component.css'
+  templateUrl: './navbar.component.html', // archivo que contien la estructura HTML
+  styleUrl: './navbar.component.css' //archivo que contiene el CSS
 })
 export class NavbarComponent {
   constructor(public authService: AuthService) { }
